@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApplication.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<div class="container">
+    <div class="row">
+
+        
+
+
+        <div class="col-md-12">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <h4 class="text-center"><span class="label label-info">@Html.DisplayFor(modelItem => item.Id) - @Html.DisplayFor(modelItem => item.Name)</span></h4>
+                        <a href="/Product/Details/@item.Id">
+                            <img src="@Html.DisplayFor(modelItem => item.ImagePath)" class="img-responsive" style="height: 250px;">
+                        </a>
+
+                        <div class="caption">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                                </div>
+                                <div class="col-md-6 col-xs-6 price">
+                                    <h3>
+                                        <label>$@Html.DisplayFor(modelItem => item.Price)</label>
+                                    </h3>
+                                </div>
+                            </div>
+                            <p>@Html.DisplayFor(modelItem => item.Description) - @Html.DisplayFor(modelItem => item.CategoryType.Name)</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-product" })
+
+                                </div>
+                                <div class="col-md-6 ">
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-default btn-product" })
+
+
+                                </div>
+                            </div>
+
+                            <p> </p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+        
+
+    </div>
+</div>
+    
+
+
+            
+
+

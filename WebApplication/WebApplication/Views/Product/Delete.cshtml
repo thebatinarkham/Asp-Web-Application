@@ -1,0 +1,79 @@
+﻿@model WebApplication.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 item-photo" style="padding-top: 60px;">
+                <img style="max-width:100%;" src="@Html.DisplayFor(model => model.ImagePath)" />
+            </div>
+            <div class="col-xs-5" style="border:0px solid gray">
+
+
+                <h3>@Html.DisplayNameFor(model => model.Name)</h3>
+                <h3>@Html.DisplayFor(model => model.Name)</h3>
+                <h5 style="color:#337ab7">@Html.DisplayNameFor(model => model.Description) - @Html.DisplayFor(model => model.Description) ·</h5>
+
+
+                <h6 class="title-price"><small>@Html.DisplayNameFor(model => model.Price) -</small></h6>
+                <h3 style="margin-top:0px;">Us$ @Html.DisplayFor(model => model.Price)</h3>
+
+                <!-- Detalles especificos del producto -->
+                <div class="section">
+                    <h6 class="title-attr" style="margin-top:15px;"><small>COLOR</small></h6>
+                    <div>
+                        <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                        <div class="attr" style="width:25px;background:white;"></div>
+                    </div>
+                </div>
+                <div class="section" style="padding-bottom:5px;">
+                    <h6 class="title-attr"><small>@Html.DisplayNameFor(model => model.CategoryTypeId)</small></h6>
+                    <div>
+                        <div class="attr2">@Html.DisplayFor(model => model.CategoryTypeId)</div>
+
+                    </div>
+                </div>
+                <div class="section" style="padding-bottom:20px;">
+                    <h6 class="title-attr"><small>CANTIDAD</small></h6>
+                    <div>
+                        <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                        <input value="1" />
+                        <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                    </div>
+                </div>
+
+                <!-- Botones de compra -->
+                <div class="section" style="padding-bottom:20px;">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <button class="btn btn-success"> <input type="submit" value="Delete" class="btn btn-success" /> </button>
+                        
+                        <h6><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-default btn-product" })</h6>
+
+
+                        
+                        
+                    </div>
+                    }
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

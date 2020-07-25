@@ -1,0 +1,10 @@
+﻿@model WebApplication.Models.Cart
+
+
+<div class="ajaxcart  font-weight-bold" style="color:black;">
+    Your Cart: @Model.Quantity item)(s) -$@Model.Price
+    <br />
+    @Html.ActionLink("Checkout", "Index")
+
+</div>
+
